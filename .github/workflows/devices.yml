@@ -84,7 +84,7 @@ jobs:
       - name: Pull and tag starport arm64
         run: | 
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/starport:arm64
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/starport:arm64 starport
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/starport:arm64 starport-arm64
 
       - name: Build Image in Docker
         run: docker buildx build --tag starport --file .pi/Dockerfile --platform linux/arm64 --cache-from ${{ secrets.DOCKERHUB_USERNAME }}/starport:picache --cache-to ${{ secrets.DOCKERHUB_USERNAME }}/starport:picache --load --progress tty .
